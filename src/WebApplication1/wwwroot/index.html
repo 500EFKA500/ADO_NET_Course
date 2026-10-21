@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Колледж</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Колледж</h1>
+    <header>
+        <button onclick="loadStudents()">Студенты</button>
+        <button onclick="loadGroups()">Группы</button>
+    </header>
+    <main>
+        <table id="studentsTable" style="display:none">
+            <thead><tr><th>ID</th><th>Имя</th><th>Фамилия</th><th>Возраст</th></tr></thead>
+            <tbody id="studentBody"></tbody>
+        </table>
+        <table id="groupsTable" style="display:none">
+            <thead><tr><th>ID</th><th>Группа</th></tr></thead>
+            <tbody id="groupBody"></tbody>
+        </table>
+        <section>
+            <h2>Добавить студента</h2>
+            <form id="studentForm">
+                <label>Имя студента <input id="firstNameStudent" required maxlength="100" placeholder="Иван"></label>
+                <label>Фамилия студента <input id="lastNameStudent" required maxlength="100" placeholder="Иванов"></label>
+                <label>Возраст <input id="ageStudent" type="number" required min="1" max="120" placeholder="18"></label>
+                <label>Группа <select id="groupId" required><option value="">Выберите группу</option></select></label>
+                <button type="submit">Добавить +</button>
+            </form>
+        </section>
+    </main>
+    <footer><p id="gr" role="status" aria-live="polite"></p></footer>
+    <script src="js/routes.js"></script>
+</body>
+</html>

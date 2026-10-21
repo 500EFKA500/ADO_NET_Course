@@ -31,3 +31,19 @@ Server=(localdb)\\MSSQLLocalDB;Database=model;Trusted_Connection=True;TrustServe
 | 12 | Swagger и тестовый endpoint | `lesson_12` |
 
 Откройте `ADO_NET_Course.sln` в Visual Studio. Для пакетов выполните Restore NuGet Packages, затем выберите нужный проект запуска.
+
+## Веб-приложение «Колледж»
+
+Проект `src/WebApplication1` содержит адаптированный код из [DozFire-College/ADO.NET, Only-Code-Files](https://github.com/DozFire-College/ADO.NET/tree/Only-Code-Files) (коммит `3aaddb085244fde566c25befa0fb6c316e693006`).
+
+В Visual Studio 2022 откройте `ADO_NET_Course.sln`, назначьте `WebApplication1` запускаемым проектом, выберите профиль **http** и нажмите F5. Страница доступна по адресу http://localhost:5058/.
+
+Или из корня репозитория:
+
+```powershell
+dotnet run --project src/WebApplication1 --launch-profile http
+```
+
+Нужны .NET 8 и SQL Server Express LocalDB. Приложение использует отдельную базу `WebApplication1_College_DB` и автоматически создаёт её, таблицы и три начальные группы при первом запуске. Строка подключения задаётся в `src/WebApplication1/appsettings.json` (`ConnectionStrings:CollegeDB`) или переменной среды `ConnectionStrings__CollegeDB`.
+
+Работают списки студентов и групп, добавление студента с проверкой полей и выбором группы. Исправлены SQL-запросы, получение ID, считывание формы и обработка ошибок. Приложение использует Dapper и Microsoft.Data.SqlClient.
